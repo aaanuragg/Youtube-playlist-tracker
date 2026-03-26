@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playlist Pace Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background"></div>
+  <header class="topbar">
+    <div class="brand">Playlist Pace</div>
+    <div class="pill">Light · Local first</div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Finish on time</p>
+        <h1>Track your YouTube playlist with pace-aware insights.</h1>
+        <p class="lede">Set a deadline, mark completed videos, and get instant feedback on whether you're on track. Everything saves locally.</p>
+      </div>
+      <div class="setup card" id="setup-section">
+        <h3>Set up your goal</h3>
+        <form id="setup-form" class="form-grid">
+          <label>Total videos
+            <input type="number" name="total" min="1" step="1" required placeholder="e.g. 42" />
+          </label>
+          <label>Deadline
+            <input type="date" name="deadline" required />
+          </label>
+          <button class="btn primary" type="submit">Start Tracking</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="dashboard hidden" id="dashboard">
+      <div class="card bar-card">
+        <div class="bar-header">
+          <div>
+            <p class="label">Progress</p>
+            <h3 id="progress-text">0% complete</h3>
+          </div>
+          <div class="status-pill" id="status-pill">On Track</div>
+        </div>
+        <div class="progress">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <p class="muted" id="motivation">Keep going!</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="card stat">
+          <p class="label">Total</p>
+          <h2 id="stat-total">0</h2>
+          <p class="muted">videos in playlist</p>
+        </div>
+        <div class="card stat">
+          <p class="label">Completed</p>
+          <h2 id="stat-done">0</h2>
+          <p class="muted">great job so far</p>
+        </div>
+        <div class="card stat">
+          <p class="label">Remaining</p>
+          <h2 id="stat-remaining">0</h2>
+          <p class="muted">videos to go</p>
+        </div>
+        <div class="card stat">
+          <p class="label">Days left</p>
+          <h2 id="stat-days">0</h2>
+          <p class="muted">until deadline</p>
+        </div>
+      </div>
+
+      <div class="card actions-card">
+        <div class="targets">
+          <div>
+            <p class="label">Daily target</p>
+            <h3 id="daily-target">0 / day</h3>
+          </div>
+          <div>
+            <p class="label">Current pace</p>
+            <h3 id="current-pace">0 / day</h3>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="btn primary" id="btn-complete">+1 Completed</button>
+          <button class="btn ghost" id="btn-undo">Undo last (-1)</button>
+          <button class="btn danger ghost" id="btn-reset">Reset</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
